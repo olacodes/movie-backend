@@ -14,7 +14,7 @@ before_deploy:
 deploy:
   provider: heroku
   api_key:
-    secure: 53982ccb-6537-48cf-bd62-4d51807bdc47
-  app: fierce-fortress-64893
+    secure: 5f3cd158-5593-4eeb-a28d-6753dd9b10ad
+  app: movie-backends
   on:
     repo: olacodes/movie-backend
