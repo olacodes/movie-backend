@@ -17,4 +17,4 @@ deploy:
     secure: 53982ccb-6537-48cf-bd62-4d51807bdc47
   app: fierce-fortress-64893
   on:
-    repo: olacodes/moviers-backend
+    repo: olacodes/movie-backend
