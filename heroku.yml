@@ -9,4 +9,4 @@ build:
 release:
   image: web
   command:
-    - python migrate.py migrate --noinput
+    - python manage.py migrate --noinput
