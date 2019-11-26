@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.6"
+
+services:
+  - docker
+
+before_script: pip install docker-compose
+
+script:
+  - docker-compose run web sh -c "python src/manage.py test ./src"
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 5f3cd158-5593-4eeb-a28d-6753dd9b10ad
+  app: movie-backends
+  on:
+    repo: olacodes/movie-backend
+    branch: develop
