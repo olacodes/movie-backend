@@ -91,7 +91,9 @@ if DEBUG == True:
 else:
     DATABASES = {
     'default': {
-        'HOST': 'DATABASE_URL',
+        'HOST': os.environ.get("DATABASE_URL"),
+        'ENGINE': 'django.db.backends.postgresql',
+        
     }
 }
 
