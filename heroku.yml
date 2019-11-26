@@ -10,3 +10,7 @@ release:
   image: web
   command:
     - python manage.py migrate --noinput
+
+run:
+  web: python manage.py runserver 0.0.0.0:$PORT
+ 

@@ -26,6 +26,7 @@ SECRET_KEY = ')#te2+qbexu#vn($l_b*%!b-zj*tt4wf6^=3bvay*7nfk2b6m+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -38,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'user_api.apps.UserApiConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'movie_backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+# print(dj_database_url.parse(config("DATABASE_URL", cast=str, default="None"), conn_max_age=600))
 
 if DEBUG == True:
     DATABASES = {
@@ -83,18 +84,17 @@ if DEBUG == True:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'postgres',
             'USER': 'postgres',
-            'PASSWORD': 'olatunde123',
             'HOST': 'db',
             'PORT': '5432'
         }
     }
 else:
     DATABASES = {
-    'default': {
-        'HOST': os.environ.get("DATABASE_URL"),
-        'ENGINE': 'django.db.backends.postgresql',
+        'default': {
+            **dj_database_url.parse(config("DATABASE_URL", cast=str, default={}), conn_max_age=600),
+            'ENGINE': 'django.db.backends.postgresql',
         
-    }
+        }
 }
 
 
@@ -138,6 +138,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'staticfiles'),
-)
+STATICFILES_DIRS = []

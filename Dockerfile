@@ -25,6 +25,10 @@ RUN pip install -r requirements.txt
 
 RUN rm requirements.txt
 
-# run gunicorn
-CMD gunicorn movie_backend.movie_backend.wsgi:application --bind 0.0.0.0:$PORT
+RUN echo $DEBUG
 
+ENV DEBUG True
+
+RUN echo $DEBUG
+
+RUN python manage.py collectstatic --noinput --clear
