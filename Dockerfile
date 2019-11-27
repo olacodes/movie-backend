@@ -25,10 +25,6 @@ RUN pip install -r requirements.txt
 
 RUN rm requirements.txt
 
-RUN echo $DEBUG
-
 ENV DEBUG True
-
-RUN echo $DEBUG
 
 RUN python manage.py collectstatic --noinput --clear
