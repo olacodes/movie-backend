@@ -28,3 +28,4 @@ RUN rm requirements.txt
 ENV DEBUG True
 
 RUN python manage.py collectstatic --noinput --clear
+
