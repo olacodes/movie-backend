@@ -14,6 +14,7 @@ class MovieList(APIView):
     '''
     List all movie, or create a new movie
     '''
+    serializer_class = MovieSerializer
     def get(self, request):
         movie = Movie.objects.all()
         serializer = MovieSerializer(movie, many=True)
@@ -32,7 +33,7 @@ class MovieDetail(APIView):
     """
     Retrieve, update or delete a movie instance
     """
-
+    serializer_class = MovieSerializer
     def get_movie(self, pk):
         try:
             return Movie.objects.get(pk=pk)
