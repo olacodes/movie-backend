@@ -1,0 +1,11 @@
+#!/bin/bash
+
+chmod +x bin/start
+
+docker-compose down
+
+docker-compose up -d
+
+docker-compose exec web python manage.py makemigrations
+
+docker-compose exec web python manage.py migrate
