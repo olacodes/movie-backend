@@ -1,6 +1,12 @@
 from django.db import models
 
-# Create your models here.
+"""
+This method create a movie model and fields to be stored in the database
+- genre: the genre of the movie
+- title: title of the movie
+- link: link to the movie
+- detail: short description of the movie
+"""
 class Movie(models.Model):
     genre = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
